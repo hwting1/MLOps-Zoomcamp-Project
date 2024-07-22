@@ -1,0 +1,23 @@
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.14.3
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/mlflow/mlruns
+    command: mlflow server --backend-store-uri sqlite:///mlflow.db --host 0.0.0.0
+
+  prefect:
+    image: prefecthq/prefect:2-latest
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./prefect:/root/.prefect
+    command: prefect server start --host 0.0.0.0
+
+  evidently:
+    image: evidently/evidently-service:0.4.31
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./evidently:/root/.evidently
