@@ -61,7 +61,7 @@ This command will generate batch predictions based on the specified year and sea
 
 9. Run the following command to perform monitoring:
     ```sh
-    python `monitoring.py`
+    python monitoring.py
     ```
 
 You can check the results at [http://0.0.0.0:8000](http://0.0.0.0:8000).
